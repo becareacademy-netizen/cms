@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "learning_materials",
+  "info": {
+    "singularName": "learning-material",
+    "pluralName": "learning-materials",
+    "displayName": "Learning Material"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "video",
+        "document",
+        "photo",
+        "writing"
+      ]
+    },
+    "YouTubeVideoID": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "Type"
+            },
+            "video"
+          ]
+        }
+      }
+    },
+    "Files": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Category": {
+      "type": "string"
+    }
+  }
+}
